@@ -28,6 +28,12 @@ public class Producto {
 
     private Boolean estado;
 
+    // Relación con cliente: muchos pruductos para una categoría
+    @ManyToOne
+    //insertable y updateble en false es para que no haya modificaciones
+    @JoinColumn(name="id_categoria", insertable=false, updatable=false)
+    private Categoria categoria;
+
     public int getIdProducto() {
         return idProducto;
     }
