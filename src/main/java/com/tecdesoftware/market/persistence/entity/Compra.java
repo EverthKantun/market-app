@@ -12,7 +12,8 @@ public class Compra {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_compra")
-    private int idCompra;
+    //le cambié de int a integer TODO
+    private Integer idCompra;
 
     @Column(name="id_cliente")
     private String idCliente;
@@ -33,7 +34,7 @@ public class Compra {
     private Cliente cliente;
 
     //una compra tiene muchos productos
-    @OneToMany(mappedBy = "compra")
+    @OneToMany(mappedBy = "compra", cascade = CascadeType.ALL)
     private List<CompraProducto> productos;
 
 
@@ -83,5 +84,21 @@ public class Compra {
 
     public void setEstado(Boolean estado) {
         this.estado = estado;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public List<CompraProducto> getProductos() {
+        return productos;
+    }
+
+    public void setProductos(List<CompraProducto> productos) {
+        this.productos = productos;
     }
 }
