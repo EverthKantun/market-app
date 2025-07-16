@@ -101,4 +101,8 @@ public class Compra {
     public void setProductos(List<CompraProducto> productos) {
         this.productos = productos;
     }
+
+    public void setIdCompra(Integer idCompra) {
+        this.idCompra = idCompra;
+    }
 }

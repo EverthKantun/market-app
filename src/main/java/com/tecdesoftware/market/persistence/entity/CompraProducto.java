@@ -3,7 +3,7 @@ package com.tecdesoftware.market.persistence.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="compra_productos")
+@Table(name="compras_productos")
 public class CompraProducto {
 
     @EmbeddedId
@@ -73,4 +73,5 @@ public class CompraProducto {
     public void setProducto(Producto producto) {
         this.producto = producto;
     }
+
 }

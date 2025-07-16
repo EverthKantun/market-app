@@ -6,11 +6,12 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
-@Table
+@Table(name="clientes")
 public class Cliente {
     @Id
     //no usamos generatedValue porque no lo vamos a generar automático, será la CURP
-    private Integer id;
+    @Column(name = "id")
+    private String id;
     private String nombre;
     private String apellidos;
 
@@ -22,13 +23,6 @@ public class Cliente {
     @OneToMany(mappedBy = "cliente")
     private List<Compra> compras;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getNombre() {
         return nombre;
@@ -71,6 +65,15 @@ public class Cliente {
     }
 
 
+    public List<Compra> getCompras() {
+        return compras;
+    }
 
+    public void setCompras(List<Compra> compras) {
+        this.compras = compras;
+    }
 
+    public void setId(String id) {
+        this.id = id;
+    }
 }
